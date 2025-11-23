@@ -1,0 +1,220 @@
+/* Importa uma fonte divertida e legível do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap');
+
+/* Variáveis de cores inspiradas em LEGO */
+:root {
+  --lego-red: #d5242a;
+  --lego-yellow: #f5cd2e;
+  --lego-blue: #0057a8;
+  --lego-green: #009624;
+  --dark-gray: #333;
+  --light-gray: #f4f4f4;
+  --white: #ffffff;
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Reset básico e estilos globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: var(--dark-gray);
+  background-color: var(--light-gray);
+  /* Padrão de fundo SVG que simula peças de Lego */
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23cccccc' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  /* padding: 20px; */ /* Removido para permitir que o conteúdo se estenda pelas bordas */
+}
+
+/* Cabeçalho e Título */
+header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 20px;
+  padding-left: 40px; /* Adiciona padding que estava no container */
+}
+
+header h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--dark-gray);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  /* Sombra para dar um efeito de bloco */
+  text-shadow: 
+    -2px -2px 0 var(--lego-yellow),  
+     2px -2px 0 var(--lego-red),
+    -2px  2px 0 var(--lego-green),
+     2px  2px 0 var(--lego-blue);
+}
+
+/* Formulário de Pesquisa */
+.search-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+/* Estilos para o novo filtro de peças */
+.filter-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  margin-top: 20px;
+  color: var(--dark-gray);
+  font-weight: 700;
+  padding: 0 20px; /* Adiciona padding que estava no container */
+}
+
+input[type="range"] {
+  width: 100%;
+  max-width: 400px;
+}
+
+input[type="text"] {
+  width: 100%;
+  max-width: 500px;
+  padding: 15px 20px;
+  font-size: 1.1rem;
+  border: 2px solid #ccc;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--lego-blue);
+  box-shadow: 0 0 10px rgba(0, 87, 168, 0.3);
+}
+
+button {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--white);
+  background-color: var(--lego-red);
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #b81e22; /* Um vermelho mais escuro */
+  transform: translateY(-2px);
+}
+
+/* Container dos Resultados */
+#results-container {
+  display: flex; /* Mudar para flexbox */
+  flex-wrap: wrap; /* Impede que os itens quebrem para a linha de baixo */
+  gap: 25px; /* Mantém o espaçamento entre os cards */
+  padding: 20px; /* Adiciona um pouco de padding para respiro */
+  /* Removemos flex-grow, pois a altura será definida pelo conteúdo */
+  min-height: 450px; /* Garante uma altura mínima para o container não colapsar */
+  justify-content: center;
+}
+
+/* Estilo dos Cards de Resultado */
+.lego-card {
+  background-color: var(--white);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0; /* Impede que os cards encolham */
+  width: 280px; /* Define uma largura fixa para os cards */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lego-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.lego-card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background-color: var(--light-gray); /* Cor de fundo enquanto a imagem carrega */
+}
+
+.lego-card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Faz o conteúdo ocupar o espaço restante */
+}
+
+.lego-card-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--lego-blue);
+}
+
+.lego-card-details {
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+  flex-grow: 1;
+}
+
+.lego-card-details span {
+  font-weight: 700;
+}
+
+.lego-card-footer {
+  margin-top: auto; /* Empurra o rodapé para o final do card */
+  padding-top: 15px;
+  border-top: 1px solid var(--light-gray);
+  text-align: right;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--lego-green);
+}
+
+/* Estilos para links do rodapé */
+.list-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  list-style: none;
+  margin-top: 40px;
+  padding: 25px 20px;
+  border-top: 2px solid #e0e0e0;
+}
+
+.list-links a {
+  text-decoration: none;
+  color: var(--dark-gray);
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.list-links a:hover {
+  color: var(--lego-blue);
+}
+
+/* Estilos para telas menores */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2.5rem;
+  }
+
+  .search-form {
+    flex-direction: column;
+  }
+}

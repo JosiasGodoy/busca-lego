@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca LEGO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Busca LEGO</h1>
+        <div class="search-form">
+            <input type="text" id="campo-busca" placeholder="Digite o nome ou número do set...">
+            <button onclick="iniciarBusca()">Buscar</button>
+        </div>
+        <div class="filter-form">
+            <label for="filtro-pecas">Máximo de peças: <span id="valor-pecas">7000</span></label>
+            <!-- O valor de max será atualizado dinamicamente via JS -->
+            <input type="range" id="filtro-pecas" min="0" max="100000">
+            <div id="contador-resultados"></div>Resultados encontrados
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="results-container">
+            <!-- Os cards de resultado serão inseridos aqui (provavelmente via JavaScript) -->
+            
+            <!-- Exemplo de Card para visualização -->
+            <!-- <article class="lego-card">
+                <img class="lego-card-image" src="https://via.placeholder.com/300x200.png?text=Imagem+do+Set" alt="Imagem do Set de Lego">
+                <div class="lego-card-content">
+                    <h2 class="lego-card-title">Castelo dos Cavaleiros do Leão</h2>
+                    <p class="lego-card-details">
+                        Set: <span>10305</span> <br>
+                        Peças: <span>4514</span>
+                    </p>
+                    <div class="lego-card-footer">
+                        Ano: 2022
+                    </div>
+                </div>
+            </article> -->
+
+            <!-- Outro Exemplo de Card -->
+            <!-- <article class="lego-card">
+                <img class="lego-card-image" src="https://via.placeholder.com/300x200.png?text=Imagem+do+Set" alt="Imagem do Set de Lego">
+                <div class="lego-card-content">
+                    <h2 class="lego-card-title">Bouquet de Flores Silvestres</h2>
+                    <p class="lego-card-details">
+                        Set: <span>10313</span> <br>
+                        Peças: <span>939</span>
+                    </p>
+                    <div class="lego-card-footer">
+                        Ano: 2023
+                    </div>
+                </div>
+            </article> -->
+
+        </section>
+    </main>
+
+    <footer>
+        <ul class="list-links">
+            <li><a href="https://www.lego.com.br/">Site da Lego</a></li>
+            <li></li><a href="https://rebrickable.com/build/">Ferramenta para montar</a></li>
+        </ul>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
